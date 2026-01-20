@@ -1,0 +1,20 @@
+# frozen_string_literal: true
+
+# Lasagna class that contains function to help better estimate the time
+# of needed to make the lasagna
+class Lasagna
+  EXPECTED_MINUTES_IN_OVEN = 40
+  MINUTES_PER_LAYER = 2
+
+  def remaining_minutes_in_oven(actual_minutes_in_oven)
+    EXPECTED_MINUTES_IN_OVEN - actual_minutes_in_oven
+  end
+
+  def preparation_time_in_minutes(layers)
+    layers * MINUTES_PER_LAYER
+  end
+
+  def total_time_in_minutes(number_of_layers:, actual_minutes_in_oven:)
+    number_of_layers * MINUTES_PER_LAYER + actual_minutes_in_oven
+  end
+end
